@@ -1,0 +1,3 @@
+[ ] TreeExpandAllManager: when collapsing/expanding branches, re-expanding different branches that were collapsed.
+[X] PropertiesInjector: limitations with overriding: can't unset a property
+[X] PropertiesInjector: possibility to load file from outside JAR

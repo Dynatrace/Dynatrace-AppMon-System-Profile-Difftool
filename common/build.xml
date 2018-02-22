@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="common" default="all">
+	<description>
+		common. lightweight utilitities. does not produce a JAR, rather just include src files to compile of target project.
+	</description>
+	
+	<target name="all" depends="build, test" description="all">
+		<echo>Done</echo>
+	</target>
+
+	<target name="init" depends="" unless="built">
+		<mkdir dir="build" />
+		<mkdir dir="build/main" />
+		<mkdir dir="build/test" />
+		<mkdir dir="junit-reports" />
+	</target>
+
+	<target name="clean" description="clean">
+		<delete dir="build" failonerror="no" />
+		<delete dir="junit-reports" />
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac deprecation="no" nowarn="${compiler.nowarn}" destdir="build/main" debug="true" includeantruntime="false" encoding="UTF8">
+			<src location="src" />
+		</javac>
+		<javac deprecation="no" nowarn="${compiler.nowarn}" destdir="build/test" debug="true" includeantruntime="false" encoding="UTF8">
+			<classpath>
+				<pathelement path="build/main"/>
+				<pathelement location="lib/junit-4.12.jar"/>
+			</classpath>
+			<src location="test" />
+		</javac>
+	</target>
+
+	<target name="test" description="test" depends="build">
+		<junit showoutput="false" printsummary="true" fork="false">
+			<jvmarg value="-ea"/>
+			<!-- large Xmx so GC doesn't slow us down too much -->
+			<jvmarg value="-Xmx1600M"/>
+			<formatter type="plain"/>
+			<classpath>
+				<pathelement location="build/main"/>
+				<pathelement location="build/test/"/>
+				<pathelement location="lib/junit-4.12.jar"/>
+				<pathelement location="lib/hamcrest-core-1.3.jar"/>
+			</classpath>
+			<batchtest todir="junit-reports" fork="false" haltonerror="true" haltonfailure="true">
+				<fileset dir="test" includes="**/*Test.java"/>
+			</batchtest>
+		</junit>
+	</target>
+	
+	
+    <target name="build" depends="compile">
+    	<copy todir="build/test">
+    		<fileset dir="testresources"/>
+    	</copy>
+	</target>
+    	
+    <target name="run"/>
+	
+	<target name="import" description="import">
+		<unzip dest="." overwrite="yes">
+			<fileset dir="..">
+				<include name="common.zip"/>
+			</fileset>
+		</unzip>
+	</target>
+
+	<target name="export" description="export">
+		<zip destfile="scm-ignored/export/common.zip">
+			<fileset dir="." >
+				<include name="src/**"/>
+				<include name="doc/**"/>
+				<include name="test/**"/>
+				<include name="testresources/**"/>
+				<include name=".project"/>
+				<include name=".classpath"/>
+				<include name="build.*"/>
+			</fileset>
+		</zip>
+	</target>
+	
+	<target name="export-all" description="export-all" depends="export">
+		<ant dir="../logtree" antfile="../logtree/build.xml" target="export"/>
+		<ant dir="../logtree.deobfuscation" antfile="../logtree.deobfuscation/build.xml" target="export"/>
+		<ant dir="../profilediff" antfile="../profilediff/build.xml" target="export"/>
+	</target>
+
+</project>
