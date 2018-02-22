@@ -1,6 +1,14 @@
 # Dynatrace-AppMon-System-Profile-Difftool
 https://answers.dynatrace.com/spaces/151/product-feedback-and-enhancement-requests/idea/133309/diffing-and-merging-dynatrace-system-profiles-prot.html
 
+how to build:
+-------------
+
+Build using Ant target in profilediff folder:
+- "build" for the JARs
+- "test" to run testsuite (slow)
+- "run" to launch the GUI
+
 profilediff/xmldiff
 -------------------
 
