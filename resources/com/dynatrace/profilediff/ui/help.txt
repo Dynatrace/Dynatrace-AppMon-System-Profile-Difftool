@@ -1,0 +1,45 @@
+profilediff/xmldiff
+-------------------
+
+This tool attempts to diff two XML structures based on element paths and attributes. Some attributes
+are chosen to be so-called discriminator attributes, like an id or a key. They make up the id of an entity.
+For system profiles, those are typically 'id', and the triple keys of measures with id, metric group id
+and metric id. Those attributes are configurable in settings.properties.
+Furthermore, to hide uninteresting changes, the differ takes a list of arguments that are to be ignored.
+For system profiles, those are typically 'rev', 'createdtimestamp' and measure colors.
+Once those attribute changes are out of the way, structure changes become clearer.
+
+The diffing (and merging) work flow takes a so-called 'baseline' XML document and compares it with a
+document that has changes, trying to merge those changes back to the baseline.
+Deletions are marked with (-) and presented in green, are only present in the baseline document and have
+disappeared in the modification document.
+Insertions are marked with (+) and presented in blue, are only present in the modification document; they
+represent new entities.
+Attribute changes are marked with (#) and presented in black, represent attribute changes between two 
+structurally equal elements. Those are counted per element, no matter how many attributes really changed.
+    
+Merge dialog
+------------
+
+When deciding to merge, the user can check all elements that should be found in the resulting merged
+document. For insertions, this will add those insertions to the baseline document (in the best location
+found). For deletions, elements that are NOT checked will be removed from the baseline document, 
+otherwise retained. Please note that the accept/reject semantic is reversed to insertions, to achieve the 
+logic of having checked elements in the merged document.
+For attribute changes, those elements that are checked will have their attributes completely replaced with
+the new values of the modification document.
+
+The merge dialog shows the progress of the merge and prints each change again. Checked insertions and 
+attribute changes as well as unchecked deletions will be shown as "Accepted (A)", otherwise "Rejected (R)".
+
+One-way vs. two-way view
+------------------------
+
+In the one-way view, all change types are collected in one tree, with a link to the originating xml source
+positions on the right.
+In the two-way view, the left side shows the baseline document while the right side shows the modification
+document. Naturally, deletions are shown left and insertions are shown right.
+Attribute changes are shown in both sides, but can only be checked on the right side.
+It's possible to view attribute details at the bottom of either view.
+
+The default checked state of the three changes types are configurable in settings.properties.

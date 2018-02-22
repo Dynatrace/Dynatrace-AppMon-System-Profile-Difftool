@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ATTENTION - THIS IS AN AUTOMATICALLY GENERATED FILE -->
+<!-- Manual changes can cause severe problems and system instability -->
+<!-- Apply manual changes only if you have received explicit instructions from dynaTrace Support -->
+<dynatrace version="6.1.0.7890">
+  <systemprofile gomezconvergenceid="469129035" sysprofgenerated="false" repositoryaccess="true" description="dynaLive system profile " capture="true" architecture="" modifiedby="cwat-rbrandst" initbtconfig="false">
+    <technology type="java" />
+    <technology type="dotnet" />
+    <technology type="ria" />
+    <technology type="webserver" />
+    <technology type="php" />
+    <license interactive="false" />
+    <agentgroups>
+      <agentgroup wizosarchitecture="" id="InternalConfluence" wizjvmversion="" wizselectedcollector="" wizlocalfqdn="" tiertype="" description="" wizjvmbitsize="" wizosname="" wizosbitsize="" wizappfriendlyname="" minrequiredagents="1" wizapplicationtype="">
+        <agentmappings>
+          <agentmapping hostpattern="" id="InternalConfluence" namematch="starts" hostmatch="starts" capture="true" namepattern="internalConfluence" dumponoom="true">
+            <timer type="auto" />
+            <loglevel override="false">
+              <console level="4" />
+              <file level="4" />
+            </loglevel>
+            <communication buffersize="128" buffersaturationthreshold="80" buffercount="80000" />
+            <capabilities>
+              <capabilities type="jvmti" />
+              <capabilities type="jvmpi" />
+              <capabilities type="dotnet" />
+              <capabilities type="jvmtiEventNotifications" />
+            </capabilities>
+            <debugflags />
+            <agentoptions />
+            <transactionsamplingconfig transactionsamplingresolution="default" transactionsampling="true" />
+          </agentmapping>
+        </agentmappings>
+        <metricgroup name="Tomcat" />
+        <sensorplacement autocapturestrings="false" ignoregettersetter="true">
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.137a9553e0938832" order="0" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.351ed239d7f7" order="1" placed="false" />
+          <sensor id="com.compuware.php.WordPress" order="2" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.bandwidth" order="3" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.1e8c72fe18f27" order="4" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.2fd6b2330626c" order="5" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.425a227f4e4" order="6" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.276ebf6450251" order="7" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.nosql.cassandra.tagging" order="8" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.2b1081ecb4054" order="9" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.511e891eafb1" order="10" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.nosql.cassandra" order="11" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.nosql.mongodb" order="12" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.muletagging" order="13" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.233f26cdc9854" order="14" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.mqseries" order="15" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.mqseriesreceiveentrypoint" order="16" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.websockets" order="17" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.actioncapturing" order="18" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.mqseriesreceiveentry" order="19" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.streaming" order="20" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.appdomaininitialization" order="21" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.perceivedrendertime" order="22" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.elasticsearch" order="23" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.timeout" order="24" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jbossesbtagging" order="25" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.ctg" order="26" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.cics" order="27" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.amqp" order="28" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.amqp" order="29" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.18f84c5bb439f" order="30" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.amqpreceiveentry" order="31" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.genericxhr" order="32" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.amqpreceiveentry" order="33" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.navtiming" order="34" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.default" order="35" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.exception" order="36" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.mysql" order="37" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.1dc029b7a1843" order="38" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.extjs" order="39" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.curl" order="40" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.b071212c99df" order="41" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.core" order="42" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.dojo" order="43" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.icefaces" order="44" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.jquery" order="45" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.thirdparty" order="46" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.35260bdbb3e49" order="47" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.hadoop" order="48" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.default" order="49" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.2b5a24bd4fb" order="50" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.2726e9297b857" order="51" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.95100b2f3caa" order="52" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.Java.a2317370fd62b" order="53" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.1284d9dc0d5" order="54" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.125a141ca16" order="55" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.125540ea42e" order="56" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.124c36f08a3" order="57" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.123f0f2310d" order="58" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.1239f276db4" order="59" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.1237b2e201a" order="60" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.123708692ed" order="61" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.memory.dotnet.default" order="62" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.activex" order="63" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.sendresource" order="64" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.memory.java.default" order="65" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.angular" order="66" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.mootools" order="67" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.prototype" order="68" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.dotnet.default" order="69" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method.java.default" order="70" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.default" order="71" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.imssoapgatewaytagging" order="72" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.addeventlistenerwrapper" order="73" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.js.resourcetiming" order="74" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.ims" order="75" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.imsconnect" order="76" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.classloader" order="77" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.ejb" order="78" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.imscontrol" order="79" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.mqseries" order="80" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.rmitagging" order="81" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jndi" order="82" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jdbc" order="83" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.struts" order="84" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.rmi" order="85" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.webservice" order="86" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.http" order="87" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.nosql.hbase" order="88" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.servlet" order="89" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.hibernate" order="90" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jta" order="91" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.xa" order="92" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.oracle" order="93" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.logger" order="94" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jms" order="95" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.disableinlining" order="96" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.phpunit" order="97" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.tibcotagging" order="98" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.pdo" order="99" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.postgresql" order="100" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.threadtagging" order="101" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.tibco" order="102" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.logging" order="103" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.php.server" order="104" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jmstagging" order="105" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.threadstart" order="106" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.messaging" order="107" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.executor" order="108" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.httptagging" order="109" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.memory" order="110" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.exception" order="111" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.adonet" order="112" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.aspnetex" order="113" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.heap" order="114" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.exception" order="115" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.webservicetagging" order="116" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.sampling.dotnet" order="116" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jmx" order="117" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.sampling.java" order="117" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.aspnet" order="118" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.webservice" order="119" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.remoting" order="120" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.component" order="121" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.awt" order="122" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.servletEndUserTagging" order="123" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.euem.webserver" order="124" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.adk" order="125" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.ria.javascript" order="126" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.ria.network" order="127" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.tagging" order="128" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.logging" order="129" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.tests" order="130" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.tests" order="131" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.ria.rendering" order="132" placed="false" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.java.jmsreceiveentry" order="133" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.wpf" order="134" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.winforms" order="135" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.messagingreceiveentrypoint" order="136" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.wcf" order="137" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.knowledgesensor.dotnet.wcftagging" order="138" placed="true" />
+          <sensor id="com.dynatrace.diagnostics.sensorgroup.method..NET.5c1b7d402f7b" order="139" placed="true" />
+        </sensorplacement>
+      </agentgroup>
+    </agentgroups>
+  </systemprofile>
+</dynatrace>
+

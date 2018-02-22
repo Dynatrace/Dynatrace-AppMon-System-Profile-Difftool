@@ -1,0 +1,42 @@
+<project name="dynaTrace developer local" default="clean+buildAll">
+
+	<condition property="isWindows">
+		<os family="windows" />
+	</condition>
+	<condition property="isLinux">
+		<and>
+			<os family="unix" />
+			<not>
+				<os family="mac" />
+			</not>
+		</and>
+	</condition>
+	<condition property="isMac">
+		<os family="mac" />
+	</condition>
+	<condition property="isUnix">
+		<os family="unix" />
+	</condition>
+
+	<!-- Properties for correct native dependency handling (defaults to windows x86): -->
+	<property name="native.os.arch" value="windows.x86" />
+	<condition property="native.lib.dir" value="lib64" else="lib">
+		<matches string="${native.os.arch}" pattern=".*\.x64$" />
+	</condition>
+	<condition property="native.bits" value="64" else="32">
+		<matches string="${native.os.arch}" pattern=".*\.x64$" />
+	</condition>
+
+
+	<target name="getLatestNativeAgentWindows" if="isWindows" unless="donotgetnativeAgent">
+		<available file="agent\conf\dtwsagent.ini" property="existsAgentLibDtwsagentIni" />
+		<available file="agent\conf\dtwsagent.ini" property="existsAgentLib64DtwsagentIni" />
+		<copy todir="agent\lib" failonerror="true" file="\\buildmaster.emea.cpwr.corp\artifacts\dynaTrace\${version.dir}\latest\native\windows-x86-32\dtagentcore.dll"/>
+		<copy todir="agent\lib" failonerror="true" file="\\buildmaster.emea.cpwr.corp\artifacts\dynaTrace\${version.dir}\latest\native\windows-x86-32\dtagent.dll"/>
+		<copy todir="agent\lib64" failonerror="true" file="\\buildmaster.emea.cpwr.corp\artifacts\dynaTrace\${version.dir}\latest\native\windows-x86-64\dtwsagent.exe"/>
+		<copy todir="agent\lib64" failonerror="true" file="\\buildmaster.emea.cpwr.corp\artifacts\dynaTrace\${version.dir}\latest\native\windows-x86-64\dtwsagent.dll"/>
+		<copy todir="agent\lib64" failonerror="true" file="\\buildmaster.emea.cpwr.corp\artifacts\dynaTrace\${version.dir}\latest\native\windows-x86-64\dtzagent.dll"/>
+		<antcall target="getLatestNativeAgentDtwsagentIniWindows32" />
+		<antcall target="getLatestNativeAgentDtwsagentIniWindows64" />
+	</target>
+</project>

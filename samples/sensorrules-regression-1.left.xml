@@ -1,0 +1,15 @@
+<sensor>
+<class pattern="myclass1">
+	 <method pattern="registerPool" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+	            <argument pattern="deletedArgument1" />
+	            <argument pattern="java.lang.String" capture="false" match="equals" />
+	            <argument pattern="org.apache.commons.pool.ObjectPool" capture="false" match="equals" />
+	            <argument pattern="deletedArgument2" />
+	</method>
+      <method pattern="registerPool" match="equals" placed="include" capturereturn="false" deepobjectaccessor="" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+        <argument pattern="java.lang.String" capture="false" match="equals" deepobjectaccessor="" />
+        <argument pattern="org.apache.tomcat.dbcp.pool2.ObjectPool" capture="false" match="equals" deepobjectaccessor="" />
+      </method>
+
+</class>
+</sensor>

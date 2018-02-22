@@ -1,0 +1,11 @@
+<sensor featurehash="" order="0" description="App" hint="Default Sensor Group for Java Method Sensor Rules" jssensorttype="" group="Methods" type="java" autoplace="true" userdefined="false" defaultorder="0" key="com.dynatrace.diagnostics.sensorgroup.method.Java.3a95b5672fe">
+          <class techtype="java" pattern="my.class.for.Sensor" match="equals" delegationsuppression="false" placed="true">
+            <method capturereturn="false" visibility="publicType" overrideable="true" argsspecified="false" deepobjectaccessor="" inheritance="auto" pattern="" onlyinstrumentifsynchappens="false" capture="active" api="&lt;api unknown&gt;" synctime="true" match="equals" placed="include" />
+          </class>
+          <class techtype="java" pattern="another.sensor.rule.class" match="equals" delegationsuppression="false" placed="true">
+            <method capturereturn="false" visibility="publicType" overrideable="true" argsspecified="false" deepobjectaccessor="" inheritance="auto" pattern="" onlyinstrumentifsynchappens="false" capture="active" api="&lt;api unknown&gt;" synctime="true" match="equals" placed="include" />
+          </class>
+          <class techtype="java" pattern="thirdRule.sensor.rule.class" match="equals" delegationsuppression="false" placed="true">
+            <method capturereturn="false" visibility="publicType" overrideable="true" argsspecified="false" deepobjectaccessor="" inheritance="auto" pattern="" onlyinstrumentifsynchappens="false" capture="active" api="&lt;api unknown&gt;" synctime="true" match="equals" placed="include" />
+          </class>
+        </sensor>

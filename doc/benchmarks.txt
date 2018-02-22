@@ -1,0 +1,46 @@
+AllTests
+local dev, win7, from eclipse
+-Xmx1500M
+
+# | string cache            | time -ea | time
+1 | NullStringCache         | 46 sec
+2 | StringCache             | 41 sec
+
+Furthermore, and more important, StringCache will need much less memory.
+
+source line count 2015-02-05
+----------------------------
+(counted with eclipse regex file search "\n[\s]*" in src/test folders)
+
+SRC:
+
+com.dynatrace.common
+720
+
+com.dynatrace.profilediff
+com.dynatrace.profilediff.togglemodel
+2038
+
+com.dynatrace.profilediff.ui
+com.dynatrace.profilediff.ui.decorationmodel
+3031
+
+TEST:
+
+com.dynatrace.common
+205
+
+com.dynatrace.profilediff
+com.dynatrace.profilediff.togglemodel
+5630
+
+com.dynatrace.profilediff.ui
+com.dynatrace.profilediff.ui.decorationmodel
+21927
+
+
+XmlMergerSystemProfilesPerformanceTest
+
+nosort: 263 sec
+sort, nobinsearch: 215, 214 sec
+sort, binsearch: 142, 137 sec

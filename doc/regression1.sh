@@ -1,0 +1,2 @@
+java -jar dist/main/profilediff.jar "samples/dynaTrace Monitoring.20150105100033.profile.xml" samples/GEH_Production.profile.xml
+#java -jar doc/profilediff.jar "samples/dynaTrace Monitoring.20150105100033.profile.xml" samples/GEH_Production.profile.xml

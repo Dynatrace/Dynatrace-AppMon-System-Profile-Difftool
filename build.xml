@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="profilediff" default="all">
+	<description>
+		profilediff - system profile / xml differ and merger
+	</description>
+	
+    <condition property="os.family" value="linux">  
+		<os family="unix"/>  
+	</condition>  
+	<condition property="os.family" value="windows">  
+		<os family="windows"/>  
+	</condition>  
+
+	<echo>os.family: ${os.family}</echo>
+	<echo>user.dir: ${user.dir}</echo>
+	
+	<property file="../../reactor/build.properties"/>
+	<property file="../../reactor/build.${os.family}.properties"/>
+	<property file="build.properties"/>
+	<property file="build.${os.family}.properties"/>
+	
+	<!--
+	<target name="all" depends="clean, build, test, memtest" description="all">
+	-->
+	<target name="all" depends="clean, build, test" description="all">
+		<echo>Done</echo>
+	</target>
+
+	<target name="init" depends="" unless="built">
+		<mkdir dir="build" />
+		<mkdir dir="build/main" />
+		<mkdir dir="build/test" />
+		<mkdir dir="dist" />
+		<mkdir dir="dist/main" />
+		<mkdir dir="dist/test" />
+		<mkdir dir="junit-reports" />
+	</target>
+
+	<target name="clean" description="clean">
+		<delete dir="build" failonerror="no" />
+		<delete dir="dist" />
+		<delete dir="junit-reports" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac deprecation="no" nowarn="${compiler.nowarn}" destdir="build/main" debug="true" includeantruntime="false" encoding="UTF8">
+			<src location="${common.dir}/src" />
+			<src location="src" />
+		</javac>
+		<javac deprecation="no" nowarn="${compiler.nowarn}" destdir="build/test" debug="true" includeantruntime="false" encoding="UTF8">
+			<classpath>
+				<pathelement path="build/main"/>
+				<pathelement location="${common.dir}/lib/junit-4.12.jar"/>
+			</classpath>
+			<src location="test" />
+		</javac>
+	</target>
+
+	<target name="build" description="build" depends="compile">
+		<jar jarfile="dist/main/profilediff.jar">
+			<manifest>
+				<attribute name="Main-Class" value="com.dynatrace.profilediff.ui.ProfileDiff"/>
+			</manifest>
+			<fileset dir="build/main">
+				<include name="**" />
+			</fileset>
+			<fileset dir="resources">
+				<include name="**" />
+			</fileset>
+		</jar>
+		<jar jarfile="dist/test/profilediff-test.jar">
+			<fileset dir="build/test">
+				<include name="**" />
+			</fileset>
+		</jar>
+	</target>
+	
+	<target name="test" description="test" depends="build">
+		<junit showoutput="false" printsummary="true" fork="true">
+			<jvmarg value="-ea"/>
+			<!-- large Xmx so GC doesn't slow us down too much -->
+			<jvmarg value="-Xmx1000M"/>
+			<formatter type="plain"/>
+			<classpath>
+				<pathelement location="dist/main/profilediff.jar"/>
+				<pathelement location="dist/test/profilediff-test.jar"/>
+				<pathelement location="${common.dir}/lib/junit-4.12.jar"/>
+				<pathelement location="${common.dir}/lib/hamcrest-core-1.3.jar"/>
+			</classpath>
+			<batchtest todir="junit-reports" fork="true" haltonerror="true" haltonfailure="true">
+				<fileset dir="test" includes="**/*Test.java"/>
+			</batchtest>
+		</junit>
+	</target>
+	
+	<target name="memtest" description="memtest" depends="build">
+		<junit showoutput="false" printsummary="true" fork="true">
+			<!--
+			<jvmarg value="-ea"/>
+			-->
+			<!-- small Xmx to prove StringCache concept - using NullStringCache MUST trigger OOM -->
+			<jvmarg value="-Xmx330M"/>
+			<formatter type="plain"/>
+			<classpath>
+				<pathelement location="dist/main/profilediff.jar"/>
+				<pathelement location="dist/test/profilediff-test.jar"/>
+				<pathelement location="${common.dir}/lib/junit-4.12.jar"/>
+				<pathelement location="${common.dir}/lib/hamcrest-core-1.3.jar"/>
+			</classpath>
+			<batchtest todir="junit-reports" fork="true" haltonerror="true" haltonfailure="true">
+				<fileset dir="test" includes="**/*Test.java"/>
+			</batchtest>
+		</junit>
+	</target>
+	
+    <target name="run" description="run" depends="build">
+        <java jar="dist/main/profilediff.jar" fork="true" failonerror="true" >
+        	<!--
+        	<jvmarg value="-ea"/>
+        	-->
+    	</java>
+	</target>
+	
+	<target name="import" description="import">
+		<unzip dest="." overwrite="yes">
+			<fileset dir="..">
+				<include name="profilediff.zip"/>
+			</fileset>
+		</unzip>
+	</target>
+
+	<target name="export" description="export">
+		<zip destfile="${common.dir}/scm-ignored/export/profilediff.zip">
+			<fileset dir="." >
+				<include name="src/**"/>
+				<include name="test/**"/>
+				<include name="doc/**"/>
+				<include name="resources/**"/>
+				<include name=".project"/>
+				<include name=".classpath"/>
+				<include name="build.*"/>
+			</fileset>
+		</zip>
+	</target>
+
+</project>

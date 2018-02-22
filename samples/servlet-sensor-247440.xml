@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ATTENTION - THIS IS AN AUTOMATICALLY GENERATED FILE -->
+<!-- Manual changes can cause severe problems and system instability -->
+<!-- Apply manual changes only if you have received explicit instructions from dynaTrace Support -->
+<?eclipse version="3.2"?>
+<plugin>
+  <extension id="com.dynatrace.diagnostics.knowledgesensor.java.servlet" point="com.dynatrace.diagnostics.knowledgesensor">
+    <sensorpack>
+      <sensor type="servlet" key="com.dynatrace.diagnostics.knowledgesensor.java.servlet" description="Servlets" userdefined="false" group="Web Requests" order="16" defaultorder="23" hint="Collects the response time and context information of Servlets and Java Server Pages (JSP)." autoplace="true" featurehash="" jssensortype="">
+        <class pattern="$$EnhancerByCGLIB$$" placed="true" match="contains" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="&lt;api unknown&gt;" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="_ibmjsp.secure." placed="true" match="starts" delegationsuppression="false" techtype="java">
+          <method pattern="_jspService" match="starts" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active" />
+        </class>
+        <class pattern="com.sun.jersey.spi.container.servlet.ServletContainer" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method comment="Add special Rule for jersey-ServletContainer" pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active">
+            <argument pattern="java.net.URI" capture="false" match="equals" />
+            <argument pattern="java.net.URI" capture="false" match="equals" />
+            <argument pattern="javax.servlet.http.HttpServletRequest" capture="false" match="equals" />
+            <argument pattern="javax.servlet.http.HttpServletResponse" capture="false" match="equals" />
+          </method>
+          <method comment="Add special Rule for jersey-ServletContainer" pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active">
+            <argument pattern="javax.servlet.http.HttpServletRequest" capture="false" match="equals" />
+            <argument pattern="javax.servlet.http.HttpServletResponse" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="javax.servlet.jsp.HttpJspPage" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="_jspService" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="javax.servlet.http.HttpServletRequest" capture="false" match="equals" />
+            <argument pattern="javax.servlet.http.HttpServletResponse" capture="false" match="equals" />
+          </method>
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="weblogic.servlet.JSPServlet" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="starts" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active" />
+        </class>
+        <class pattern="weblogic.servlet.FileServlet" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="starts" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active" />
+        </class>
+        <class pattern="javax.servlet.http.HttpServlet" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method pattern="" match="starts" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active" />
+          <method pattern="doGet" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doPost" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doHead" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doDelete" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doOptions" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doTrace" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="atg.servlet.DynamoPageServlet" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method pattern="" match="starts" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active" />
+          <method pattern="doGet" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doPost" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doHead" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doDelete" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doOptions" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doTrace" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="coldfusion.bootstrap.BootstrapServlet" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method pattern="doGet" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doPost" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doHead" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doDelete" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doOptions" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doTrace" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="coldfusion.CfmServlet" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method pattern="doGet" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doPost" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doHead" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doDelete" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doOptions" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doTrace" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="javax.faces.webapp.FacesServlet" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method pattern="doGet" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doPost" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doHead" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doDelete" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doOptions" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="doTrace" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="com.ibm.broker.inlinehttp.tomcatthreadpool.TomcatInstanceManager$AdapterClass" placed="true" match="equals" delegationsuppression="true" techtype="java">
+          <method pattern="service" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="javax.servlet.ServletResponse" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="getWriter" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="getOutputStream" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="javax.servlet.http.HttpServletResponseWrapper" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="sendError" match="equals" placed="exclude" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="sendError" match="equals" placed="exclude" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="sendRedirect" match="equals" placed="exclude" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="setStatus" match="equals" placed="exclude" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setStatus" match="equals" placed="exclude" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="javax.servlet.http.HttpServletResponse" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="sendError" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="sendError" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="sendRedirect" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="setStatus" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setStatus" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="javax.servlet.RequestDispatcher" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="include" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="auto" capture="active">
+            <argument pattern="javax.servlet.ServletRequest" capture="false" match="equals" />
+            <argument pattern="javax.servlet.ServletResponse" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="javax.servlet.ServletOutputStream" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="starts" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Servlet" inheritance="thisMethod" capture="active" />
+          <method pattern="print" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="println" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="write" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="java.io.PrintWriter" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="print" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="println" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+          <method pattern="write" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern="javax.servlet.Filter" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="doFilter" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="inheritedMethods" capture="startPP">
+            <argument pattern="javax.servlet.ServletRequest" capture="false" match="equals" />
+            <argument pattern="javax.servlet.ServletResponse" capture="false" match="equals" />
+            <argument pattern="javax.servlet.FilterChain" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com.wm.app.b2b.server.HTTPHandler" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="process" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Servlet" inheritance="auto" capture="startPP">
+            <argument pattern="com.wm.app.b2b.server.ProtocolState" capture="false" match="equals" />
+          </method>
+        </class>
+      </sensor>
+    </sensorpack>
+  </extension>
+</plugin>
+

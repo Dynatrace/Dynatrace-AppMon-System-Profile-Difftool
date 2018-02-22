@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ATTENTION - THIS IS AN AUTOMATICALLY GENERATED FILE -->
+<!-- Manual changes can cause severe problems and system instability -->
+<!-- Apply manual changes only if you have received explicit instructions from dynaTrace Support -->
+<dynatrace version="6.1.0.7890">
+  <systemprofile gomezconvergenceid="469129035" sysprofgenerated="false" repositoryaccess="true" description="dynaLive system profile " capture="true" architecture="" modifiedby="cwat-rbrandst" initbtconfig="false">
+    <technology type="java" />
+    <technology type="dotnet" />
+    <technology type="ria" />
+    <technology type="webserver" />
+    <technology type="php" />
+    <license interactive="false" />
+
+  </systemprofile>
+</dynatrace>
+

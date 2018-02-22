@@ -1,0 +1,30 @@
+<project name="dynaTrace core" default="buildAllJars">
+	<description>
+        dynaTrace core (Java) build:
+
+		Product release core build
+    </description>
+
+	<property name="dir.root" location="." />
+
+	<property file="${dir.root}/../ant.properties" />
+	<property file="${user.home}/ant.properties" />
+
+
+	<condition property="bundle.properties.filename" value="bundles.${target.platform}.properties"
+			else="bundles.properties">
+		<isset property="target.platform" />
+	</condition>
+
+	<!-- Check if any component is obfuscated (independent of release build) -->
+	<condition property="doObfuscateAny">
+		<OR>
+			<istrue value="${doObfuscateAgent}" />
+			<istrue value="${doObfuscateServerCollectorClient}" />
+		</OR>
+	</condition>
+
+    <condition property="isAix">
+        <os name="AIX" />
+    </condition>
+</project>

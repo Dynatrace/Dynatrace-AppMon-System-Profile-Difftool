@@ -1,0 +1,240 @@
+string metrics:
+- longest common subsequence (only addition, deletion)
+- hamming distance (only substitution)
+- levensthein = all 3
+- JaroWinkler and other edit distances: Damerau-Levenshtein, Fuzzy
+
+[X] XmlDifferDepthShuffleTest: non-equal cases
+
+[ ] string metric differ: mark ambiguous matches with diffState or distance
+[X] XmlMergerSystemProfilesPerformanceTest - should also work with shuffling differs => missing discriminators ?
+    note: whole test can't incorp. shuffling differs since merge results will differ (and some XmlDifferTest cases are order-sensitive)
+    explains: attribute changes on e.g. "argument" must be different since the patterns are equal => OK.
+    but: under measures: (with dt monitoring), 11 more elements appear with no peer
+    e.g. "TransmitFile argument notContains AJAX" measure id. should be peered, why isn't it ? => the "sticky depth"
+[x] ? think it is fixed with shuffling fixes. bug: open with jdbc packs, Ctrl+B => very strange results
+[X] SOLVED with smallestComparable() stableness: e.g. left side "ria", right side "ria1", "ria2" distance 1 - cannot be stable
+[X] StringMetricXmLDiffer: depth is not set to 0 in inner loop, this is needed for some testcase,
+    but unnecessarily increased min threshold of XmlDifferSensorRulesTest from 56 to 91.
+[X] store DISTANCE in XmlElement/...
+[ ] make metric config more flexible 
+[X] split tests per ls.threshold
+[X] checks for maxMinDist
+[x] threshold confable, -1 = use no-thresh.
+[X] StringMEtricDiffer: xml.depth!
+[-] en-recurse childrenNames
+[X] if equal, return 0 (quicker)
+[x] shuffle right side - peering not stable?
+[X] checkIndices = minIndices form prev round.
+[X] XmlDifferFactory -> TestBase.
+[X] StringMetricDiffer: bug: on several equal elements, it still reports deletion+insertion insteadof attr change.
+e.g. dynaTrace Monitoring.20150105103732.profile.xml:3270
+              <argument pattern="com.atlassian.confluence.pages.Attachment" deepobjectaccessor="" capture="false" match="equals" argumentname="" />
+              <argument pattern="com.atlassian.confluence.pages.Attachment" deepobjectaccessor="" capture="false" match="equals" argumentname="" />
+              <argument pattern="java.io.InputStream" deepobjectaccessor="" capture="false" match="equals" argumentname="" />
+=> a change on "com.atlassian.confluence.pages.Attachment" (no matter which one) will not work as attr. change, a change on "java.io.InputStream" works.
+   if we have only one "com.atlassian.confluence.pages.Attachment" argument on both sides, it also works => it's the duplication that makes problems for the algo.
+   
+differ.
+[X] =StringMetricXmlDiffer should always compare children recursively, not whole paths on whole document - less comparison
+[X] levenshtein: also need makeUniqueNames() with including childrenNames
+[ ] childrenNames - combine the two algos.
+[ ] differ redesign - bottom-up
+[X] reset uniquePath strings. dont show.
+
+[ ] oneway panel: also scroll on non-change parent elements so we can compare insertion/deletion spots in both documents. (like it's done for attr.)
+[X] twoway panel: parse: error => text lost.
+[ ] twoway panel: merge correct xml => "content not allowed in prolog" ???
+
+feedback
+--------
+
+[X] xmldiff: maybe ignore attribute that has been added and is empty, like "deepobjectaccessor"
+[X] class/method:pattern. maybe provide a function that extracts an interesting portion so we can peer up
+    minor pattern changes... OR: try StringUtils.getLevenstheinDistance for sensor rules here.
+
+[ ] expand tree: if 1 child, expand as well (recursive)
+[X] expandInitial: for plugin.xml ... expand downto deepest single-child.
+[ ] enumAttributes: show rawPath in headers, not path.
+[X] twoway: attribute checkbox left: todo: store checkbox on insertion element only, adapt assertions, ADAPT MODEL TESTS.
+[X] HierDecoModel: confable .gif/
+[X] first discr => node text.
+[-] tooltip -> decomodel
+[X] tm - del. - reverse toggle veto
+[!] deletion semantic - cannot reverse: highlights, toggleModel
+[X] initial sel => properties
+[X] all tests - same discr.
+[ ] cleanup sysouts - logging? 
+[ ] SystemProfileToggleModel: TODO what we can't handle: if whole "agentgroups" tree was added
+[ ] onewaypanel: drop "Old value" column where not needed. (or add a checkbox for to hide it)
+[ X XmlElementToggleModel: (1) implement measureref, (2) confable class for this model
+[ ] XmlDiffer2 experimental approach: assign serial to each distinct attribute map. 
+    this serial is part of the path
+    root:3/config:2/element:7
+    for dynatrace/ ... don't do this for levels 0 and 1
+    diffing: binary search other side paths
+    there are no attr. changes, only insertions/deletions.
+[-] DebugManager - add manual override
+[X] make asyinc using Worker: 2way panel: attr. collecting takes a long time
+[x] common StringCache test
+[X] common. TreeCheckboxManager, TreeExpandAllManager
+[X] only lookup "nice" names on level 3, capitalize if not found.
+[ ] merger - maybe merge concurrently on substrings... (for safe, not fast)
+[-] checkbox: nice names
+[ ] gui: add discr. attr and other config
+[ ] fast merger: can we fast-merge repeatedly? once slow => very slow
+[X] updateHighlight => bug with checkAll
+[X] NewProfile1 -> NewProfile2: NewBt1: thresholds added under count.
+    bt/measureref:Count:Exceptions:Count => measure:Count:Exceptions:Count 
+[!] differ - can we ignore order w/o setting discriminators?
+    1) here's how: for ambig. paths, try to peer up perfect attr. matches using permutations.
+    1) todo -reorder() - only incr counts at end
+    2) sort everything - complete different impl, w/o discriminators - experimental
+[X] suggest discr. when reorder()
+[X] regression1/bug: element factory + linker
+[-] fixed with check-all. select all + toggle => invalidated. need a better concept
+[X] maybe cache display names in userObjects
+[X] merge panel: stop button!!
+[O] big ui change: https://172.16.96.81:8000/svn/repos/CompuwareAPM/info?revision=464849
+[O] big ui change: 341fd3ac351d088ba46eebae3d7a2a3c959bec3d
+[X] store XmlInput in mainPanel
+[X] commands merge+save, merge+open
+[-] resultpanel . use progress()
+[X] xmlmerger - does too much diff()
+[X] one/two - only parse once, reset modelChildren on tab change.
+[ ] memtest: use distinct test class. the parameters are bad - OOM twice 
+[X] find correct spot (file open) to clearStringCache()
+[X] introduce StringCache
+[X] Differ very slow for large unmergeable docs (different root)
+[ ] DOC
+[X] different roots: click => NPE (parent.peer)
+[ ] live-merge with real preview with fast merger possible.
+[X] merger: make faster : sortby insertionPos, then merge!
+[X] tree: show only INS, DEL, ATTR
+[X] progressbar indet: UGLY!
+[X] fast: at least for attrs, it must be possible
+[-] merger bug: attr. first, insertIntoParent always takes all args.
+[X] gui: reload function. 
+[X] merge panel: ctrl-S shortcut.
+[X] XmlLinker: better design:
+[X] link feature: toggle logging on element toggle
+[X] XmlMergerSystemProfilesTest: case2: attr counts!! has to do with replacing whole tree when empty parent!!! 
+[X] drop "original, modified" names. new: base/mod, left/right
+[ ] show merged XML in OneWayPanel 3rd tab
+[ ] common util: Runner; properties conf; TextTools
+[X] test: every element only asked 1 time from Include callback.
+[X] resultPanel: show summary counts.
+XmlLinker bug:
+GEL_Staging.profile.xm Agent Groups - sensor configs. not linked together
+
+>> brandi:
+am coolsten waers eigentlich wenn man einfach einen button hat der von 
+'links' einen change nach 'rechts' schiebt und dann die rechte sicht updated (sozusagen ein merge im rechten fenster)
+ideas:
+[X] filter textbox to quickly find elements
+[-] merger3: perf: do more insertions in one batch backwards: prevInsertionIndex < insertionIndex
+
+XmlLinker
+PROBLEM - parentChanged have no checkboxes, but links can point to a parentChanged (Agent Groups) - how to handle?
+
+BUGS:
+[X] OneWay: attributes get duplicated when traversing up
+[X] TwoWay: sometimes, the switch to/from change only leaves us with an empty tree
+[X] Combined model: doesn't work with build/core/devlocal.
+TODO:
+[X]: ?xml prolog!!
+[X] descendant states: should also be on peer so that sync works in "Change only" mode
+[X] test: mergedflag
+[X] differ: all/selected attributes
+[X] merger: merge selectivley
+[-] "negative merge" ? "Forgrt this change"
+[-] MergePanel: bug with finding changes in result via uniquePath for e.g. "property" (FEH sysprofile)
+
+
+
+[X] MergePanel: parse this <==> apply in mainframe. ATTENTION: also re-load right panel otherwise some changes remain there. CACHE BUG
+[-] Changes only: allow for "structure only"
+[X] Attribute table: hide "ignored attributes" (checkbox?)
+[X] XmlMerger2: simplify: only merge 1 change, then parse again, and so on...
+    this will greatly reduce bugs and problems with insert/remove indices.
+[-] XmlMerger2: cannot selectively merge children of element that is empty in original due to replace algorithm.
+[X] GOT RID OF SAX. merger produces invalid XML for e.g. ant build files
+[X] mergepanel: selecting multiple changes left should be reflected in lines highlight.
+[-] fix bug when appending lines to line display!
+[X] add a swap lef-right function
+[X] add test for bug below with not clearing peer
+[X] sync selection: also for attributes.
+[X] changes only/expand all: dont expand parentAdded
+[X] delete checkbox: reverse semantic ? checked <=> will be in result.
+[x] save function merge
+
+[X] bug: fixed
+
+ERROR: no path found for: dynatrace/systemprofile/agentgroups
+ERROR: no path found for: dynatrace/systemprofile/configurations/configuration:Default/sensorconfig
+ERROR: no path found for: dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:com.dynatrace.diagnostics.sensorgroup.php.PHP.b34876b4c50c
+
+repro:
+1) open 2 equal e.g. "new profile 4"
+2) open newprofile2 evil left, newprofile 4 right
+CLOSING THE RIGHT PANE HELPS.
+
+Merge insertion: dynatrace/systemprofile/configurations/configuration:Default/sensorconfig [2554:2781] at position: dynatrace/systemprofile/configurations/configuration:Default/sensorconfig [2554:2781] into parent: false
+Merge insertion: dynatrace/systemprofile/sensorgroups/sensorgroup [149:151] at position: dynatrace/systemprofile/sensorgroups/sensorgroup [149:151] into parent: false
+Merge insertion: dynatrace/systemprofile/agentgroups [11:135] at position: dynatrace/systemprofile/agentgroups [11:135] into parent: false
+added dynatrace/systemprofile/agentgroups=null
+added dynatrace/systemprofile/configurations/configuration:Default/sensorconfig=null
+added dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:com.dynatrace.diagnostics.sensorgroup.php.PHP.b34876b4c50c=null
+removed dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:com.dynatrace.diagnostics.sensorgroup.php.PHP.b34876b4c50c;sensor:MYNEWSENSOR3=sensorgroup
+removed dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:MYNEWSENSOR-CORRECTLY-ADDED=sensorgroup
+removed dynatrace/systemprofile/transactions/transaction:NewBt1=transaction:NewBt1
+removed dynatrace/systemprofile/uemconfiguration/sotwcategoryindex/categories/sotwcategory:NEW=sotwcategory:NEW
+removed dynatrace/systemprofile/measures/measure:Violation of HTTP Errors/Warnings:Threshold Violations:Count=measure:Violation of HTTP Errors/Warnings:Threshold Violations:Count
+removed dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:MYNEWSENSOR;sensor:MYNEWSENSOR2=sensorgroup
+removed dynatrace/systemprofile/measures/measure:Failed Transaction Count of NewBt1:Error Detection:Failed Transaction Count=measure:Failed Transaction Count of NewBt1:Error Detection:Failed Transaction Count
+removed dynatrace/systemprofile/measures/measure:Failed Transaction Percentage of NewBt1:Error Detection:Failed Transaction Percentage=measure:Failed Transaction Percentage of NewBt1:Error Detection:Failed Transaction Percentage
+removed dynatrace/systemprofile/measures/measure:Count:Exceptions:Count/thresholds=thresholds
+removed dynatrace/systemprofile/measures/measure:Violation of PurePath Exceptions:Threshold Violations:Count=measure:Violation of PurePath Exceptions:Threshold Violations:Count
+ERROR: no path found for: dynatrace/systemprofile/agentgroups
+ERROR: no path found for: dynatrace/systemprofile/configurations/configuration:Default/sensorconfig
+ERROR: no path found for: dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:com.dynatrace.diagnostics.sensorgroup.php.PHP.b34876b4c50c
+
+------
+
+Merge insertion: dynatrace/systemprofile/configurations/configuration:Default/sensorconfig [2554:2781] at position: dynatrace/systemprofile/configurations/configuration:Default [2476:2476] into parent: true
+Merge insertion: dynatrace/systemprofile/sensorgroups/sensorgroup [149:151] at position: dynatrace/systemprofile/sensorgroups/sensorgroup [24:26] into parent: false
+Merge insertion: dynatrace/systemprofile/agentgroups [11:135] at position: dynatrace/systemprofile/license [10:10] into parent: false
+added dynatrace/systemprofile/agentgroups=agentgroups
+added dynatrace/systemprofile/configurations/configuration:Default/sensorconfig=sensorconfig
+added dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:com.dynatrace.diagnostics.sensorgroup.php.PHP.b34876b4c50c=sensorgroup
+removed dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:com.dynatrace.diagnostics.sensorgroup.php.PHP.b34876b4c50c;sensor:MYNEWSENSOR3=sensorgroup
+removed dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:MYNEWSENSOR-CORRECTLY-ADDED=sensorgroup
+removed dynatrace/systemprofile/transactions/transaction:NewBt1=transaction:NewBt1
+removed dynatrace/systemprofile/uemconfiguration/sotwcategoryindex/categories/sotwcategory:NEW=sotwcategory:NEW
+removed dynatrace/systemprofile/measures/measure:Violation of HTTP Errors/Warnings:Threshold Violations:Count=measure:Violation of HTTP Errors/Warnings:Threshold Violations:Count
+removed dynatrace/systemprofile/sensorgroups/sensorgroup;sensor:MYNEWSENSOR;sensor:MYNEWSENSOR2=sensorgroup
+removed dynatrace/systemprofile/measures/measure:Failed Transaction Count of NewBt1:Error Detection:Failed Transaction Count=measure:Failed Transaction Count of NewBt1:Error Detection:Failed Transaction Count
+removed dynatrace/systemprofile/measures/measure:Failed Transaction Percentage of NewBt1:Error Detection:Failed Transaction Percentage=measure:Failed Transaction Percentage of NewBt1:Error Detection:Failed Transaction Percentage
+removed dynatrace/systemprofile/measures/measure:Count:Exceptions:Count/thresholds=thresholds
+removed dynatrace/systemprofile/measures/measure:Violation of PurePath Exceptions:Threshold Violations:Count=measure:Violation of PurePath Exceptions:Threshold Violations:Count
+
+
+
+gui:
+[X] make XML editable and reparsable in separate tab
+
+differ:
+[ ] store STRUCTURE change and ATTR change separately
+
+merger:
+[ ] only structural merge possible. should we merge attributes ?
+
+lexer:
+[X] more specific conf of discrimnator: per path, like 
+dynatrace/systemprofile/uemconfiguration/uemdomainconfig/uemdomainthirdparty/uemdomain: domain
+measures: id+metricgroup+metric
+sensor: key
+...
+or. can we add children as discr? for sensorgroup, that would work. ONLY POSSIBLE IF ONLY 1 CHILD!
+
+ 

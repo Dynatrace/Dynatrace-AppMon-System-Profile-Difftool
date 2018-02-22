@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ATTENTION - THIS IS AN AUTOMATICALLY GENERATED FILE -->
+<!-- Manual changes can cause severe problems and system instability -->
+<!-- Apply manual changes only if you have received explicit instructions from dynaTrace Support -->
+<?eclipse version="3.2"?>
+<plugin>
+  <extension id="com.dynatrace.diagnostics.knowledgesensor.java.jdbc" point="com.dynatrace.diagnostics.knowledgesensor">
+    <sensorpack>
+      <sensor type="jdbc" key="com.dynatrace.diagnostics.knowledgesensor.java.jdbc" description="JDBC" userdefined="false" group="Database" order="16" defaultorder="15" hint="Collects performance information of preparing and executing SQL statements." autoplace="true" featurehash="" jssensortype="">
+        <class pattern="com.cenqua.clover." placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+          <method pattern="&lt;init&gt;" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+          <method pattern="&lt;clinit&gt;" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="com_cenqua_clover." placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+          <method pattern="&lt;init&gt;" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+          <method pattern="&lt;clinit&gt;" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="com.plumtree.connectionpool." placed="true" match="starts" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+          <method pattern="&lt;init&gt;" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Thread Start Tagging" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="com.lombardisoftware.utility.ObjectPool$ConnectionWrapper" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="Needed to get WebSphere BPM to work with correct connection pools" pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="com.lombardisoftware.utility.ObjectPool" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="Needed to get WebSphere BPM to work with correct connection pools" pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="$$EnhancerByProxool$$" placed="true" match="contains" delegationsuppression="false" techtype="java">
+          <method comment="Exclude Proxool Proxys" pattern="" match="contains" placed="exclude" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="$$EnhancerByCGLIB$$" placed="true" match="contains" delegationsuppression="false" techtype="java">
+          <method comment="Exclude CGLIB Proxys" pattern="" match="contains" placed="exclude" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="SybLiteral" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="&lt;api unknown&gt;" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="&lt;api unknown&gt;" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="" match="equals" placed="exclude" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="&lt;api unknown&gt;" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="org.jboss.resource.connectionmanager.BaseConnectionManager2$ConnectionManagerProxy" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="getCM" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="org.jboss.resource.connectionmanager.JBossManagedConnectionPool$BasePool" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="this method is not instrumented itself, but is used merely as a placehoder to be able to add another method to this class - since the constructor has changed between JBoss 4 and 6, this method has been used instead" pattern="flush" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="org.jboss.resource.connectionmanager.JBossManagedConnectionPool" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used for resizing Connection Pools" pattern="setMaxSize" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="org.jboss.resource.adapter.jdbc.WrapperDataSource" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="the ConnectionPoolData is created during initialization of the JBoss Data Source" pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="org.jboss.resource.adapter.jdbc.BaseWrapperManagedConnectionFactory" capture="false" match="equals" />
+            <argument pattern="javax.resource.spi.ConnectionManager" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="weblogic.common.resourcepool.ResourcePoolImpl" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used for resizing Connection Pools" pattern="setMaximumCapacity" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="weblogic.jdbc.common.internal.ConnectionPool" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="This is the main class of the WebLogic connection pool - when start() is called, the Connection Pool is registered within dynaTrace">
+          <method comment="the ConnectionPoolData is created during initialization of the WebLogic Connection Pool" pattern="start" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+          </method>
+          <method pattern="start" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+            <argument pattern="boolean" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="weblogic.jdbc.common.internal.ConnectionEnv" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="needed to add the method getPooledResourceInfo() on WebLogic 8.1 which does not exist there">
+          <method comment="used to add another Method to ConnectionEnv" pattern="&lt;clinit&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="defaultType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="com.ibm.ejs.j2c.ConnectionFactoryBuilderServerImpl" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="This is where the Managed Connection Factory is built up and the Pool Data is set for WebSphere">
+          <method pattern="createMCFandPM" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ConnectorProperties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ConnectorPoolProperties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ResourceAdapterDD" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ManagedConnectionFactoryProps" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.MBeanProps" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.PmiProps" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.CMConfigData" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com.ibm.ejs.j2c.ConnectionFactoryBuilderImpl" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="This is where the Managed Connection Factory is built up and the Pool Data is set for WebSphere">
+          <method pattern="createMCFandPM" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ConnectorProperties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ConnectorPoolProperties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ResourceAdapterDD" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.ManagedConnectionFactoryProps" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.MBeanProps" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.PmiProps" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+            <argument pattern="com.ibm.ejs.j2c.CMConfigData" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="needed to add the field dynaTracePoolData">
+          <method pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="com.ibm.ws.pmi.server.modules.J2CModule" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="needed to add the method getDynaTraceUsedPoolSize() in order to get the current number of used connections for this pool">
+          <method comment="used to add a method for getting the current Pool Occupation" pattern="&lt;clinit&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="defaultType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+          <method comment="needed for resizing connection pools" pattern="setPoolSize" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="long" capture="false" match="equals" />
+            <argument pattern="long" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com\.(ibm\.ws\.rsadapter\.jdbc\.WSJdbcDataSource|mchange\.v2\.c3p0.*(PoolBacked|DriverManager)DataSource.*)|java\.sql\.Driver(Manager)?|javax\.sql\.(ConnectionPoolDataSource|DataSource|PooledConnection|XAConnection|XADataSource)|oracle\.jdbc\.(pool\.OracleConnectionPoolDataSource|pool\.OracleDataSource|xa\.client\.OracleXADataSource|xa\.OracleXADataSource)|org\.(apache\.tomcat\.jdbc\.pool\.DataSourceProxy|jboss\.resource\.adapter\.jdbc\.(local\.LocalDataSource|WrapperDataSource))|weblogic\.jdbc\.(common\.internal\.RmiDataSource|jta\.DataSource|jts\.Driver|pool\.Driver)|org\.apache\..*\.dbcp\.(BasicDataSource|datasources\.InstanceKeyDataSource|datasources\.InstanceKeyDataSource|datasources\.SharedPoolDataSource|managed\.ManagedDataSource|PoolingDataSource|PoolingDriver)|com\.sun\.gjc\.spi\.jdbc.?.?\.DataSource.?.?|com\\.sun\\.gjc\\.spi\\.base\\.(Abstract)?DataSource" placed="true" match="regex" delegationsuppression="true" techtype="java" comment="needed to find out the time it takes to get a connection. getPoolConnectionObj must be instrumented to find out which connection pool is used.">
+          <method pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active" />
+          <method pattern="getPoolConnectionObj" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="weblogic.jdbc.common.internal.ConnectionEnv" capture="false" match="equals" />
+          </method>
+          <method pattern="connect" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+          <method pattern="connect" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="allocateConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="weblogic.jdbc.common.internal.ConnectionEnv" capture="false" match="equals" />
+          </method>
+          <method pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="javax.resource.spi.ConnectionRequestInfo" capture="false" match="equals" />
+          </method>
+          <method comment="used for instrumentation of XA Data Sources" pattern="getXAConnection" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active" />
+          <method comment="used for Instrumentation of Pooled Data Sources" pattern="getPooledConnection" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active" />
+          <method comment="for DriverManager.getConnection()" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method comment="for DriverManager.getConnection()" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method comment="for DriverManager.getConnection" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+          <method comment="for DriverManager.getConnection" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+          <method comment="for DriverManager.getConnection" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com\.(ibm\.ws\.rsadapter\.jdbc\.WSJdbc(Connection|PreparedStatement|Statement)|mchange\.v2\.c3p0\.(C3P0ProxyConnection|impl\.C3P0PooledConnection\$ProxyConnection|impl\.C3P0PooledConnection.*Proxy.*Statement|impl\.NewProxyCallableStatement|impl\.NewProxyConnection|impl\.NewProxyConnection|impl\.NewProxyPreparedStatement|impl\.NewProxyStatement)|microsoft\.sqlserver\.jdbc\.SQLServer(CallableStatement|Connection|PreparedStatement|Statement)|mysql\.jdbc\.(CallableStatement|ConnectionImpl|PreparedStatement|StatementImpl))|org\.apache\.(derby(\.iapi\.jdbc\.(BrokeredCallableStatement.*|BrokeredPreparedStatement.*)|\.impl\.jdbc\.Embed(CallableStatement|Connection|PreparedStatement|Statement)).*|.*\.dbcp\.(cpdsadapter\.ConnectionImpl|cpdsadapter\.PooledConnectionImpl|managed\.ManagedConnection|PoolableConnection|PoolingConnection|PoolingDataSource$PoolGuardConnectionWrapper|DelegatingConnection|.cpdsadapter\.PoolablePreparedStatementStub|DelegatingCallableStatement|DelegatingPreparedStatement|DelegatingStatement|PoolableCallableStatement|PoolablePreparedStatement))|java\.sql\.(CallableStatement|Connection|PreparedStatement|Statement)|net\.sourceforge\.jtds\.jdbc\.Jtds(CallableStatement|PreparedStatement|Statement)|oracle\.jdbc\.(OracleConnectionWrapper|driver\.(OracleCallableStatement|OraclePreparedStatementWrapper|OraclePreparedStatement|OracleStatement|PhysicalConnection))|org\.compiere\.util\.C(PreparedStatement|Statement)|org\.jboss\.resource\.adapter\.jdbc\.(CachedCallableStatement|CachedPreparedStatement|jdk6\.CachedCallableStatementJDK6|jdk6\.CachedPreparedStatementJDK6|jdk6\.WrappedCallableStatementJDK6|jdk6\.WrappedConnectionJDK6|jdk6\.WrappedPreparedStatementJDK6|jdk6\.WrappedStatementJDK6|local\.LocalCallableStatement|local\.LocalConnection|local\.LocalPreparedStatement|local\.LocalStatement|WrappedCallableStatement|WrappedConnection|WrappedPreparedStatement|WrappedStatement)|org\.postgresql\.jdbc(2\.AbstractJdbc2|3\.AbstractJdbc3)Statement|weblogic\.jdbc\.wrapper\.(CallableStatement|Connection|XAConnection|JTAConnection|JTSConnection|PreparedStatement|Statement)|com\.sybase\.jdbc(x|3\.jdbc|4\.jdbc)\.SybConnection" placed="true" match="regex" delegationsuppression="true" techtype="java">
+          <method pattern="execute" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active" />
+          <method pattern="executeQuery" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active" />
+          <method pattern="executeUpdate" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active" />
+          <method pattern="setNull" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setBoolean" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="boolean" capture="false" match="equals" />
+          </method>
+          <method pattern="setByte" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="byte" capture="false" match="equals" />
+          </method>
+          <method pattern="setShort" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="short" capture="false" match="equals" />
+          </method>
+          <method pattern="setInt" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setLong" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="long" capture="false" match="equals" />
+          </method>
+          <method pattern="setFloat" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="float" capture="false" match="equals" />
+          </method>
+          <method pattern="setDouble" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="double" capture="false" match="equals" />
+          </method>
+          <method pattern="setBigDecimal" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.math.BigDecimal" capture="false" match="equals" />
+          </method>
+          <method pattern="setString" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="setBytes" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="byte[]" capture="false" match="equals" />
+          </method>
+          <method pattern="setDate" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Date" capture="false" match="equals" />
+          </method>
+          <method pattern="setTime" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Time" capture="false" match="equals" />
+          </method>
+          <method pattern="setTimestamp" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Timestamp" capture="false" match="equals" />
+          </method>
+          <method pattern="setAsciiStream" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.io.InputStream" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setUnicodeStream" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.io.InputStream" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setBinaryStream" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.io.InputStream" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="clearParameters" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active" />
+          <method pattern="setObject" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setObject" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setObject" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+          </method>
+          <method pattern="setCharacterStream" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.io.Reader" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="setRef" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Ref" capture="false" match="equals" />
+          </method>
+          <method pattern="setBlob" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Blob" capture="false" match="equals" />
+          </method>
+          <method pattern="setClob" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Clob" capture="false" match="equals" />
+          </method>
+          <method pattern="setArray" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Array" capture="false" match="equals" />
+          </method>
+          <method pattern="setDate" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Date" capture="false" match="equals" />
+            <argument pattern="java.util.Calendar" capture="false" match="equals" />
+          </method>
+          <method pattern="setTime" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Time" capture="false" match="equals" />
+            <argument pattern="java.util.Calendar" capture="false" match="equals" />
+          </method>
+          <method pattern="setTimestamp" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.sql.Timestamp" capture="false" match="equals" />
+            <argument pattern="java.util.Calendar" capture="false" match="equals" />
+          </method>
+          <method pattern="setNull" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="addBatch" match="equals" placed="include" capturereturn="true" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="true" match="starts" />
+          </method>
+          <method pattern="executeBatch" match="equals" placed="include" capturereturn="true" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active" />
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="int[]" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String[]" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="JDBC" inheritance="auto" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="boolean" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareCall" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareCall" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="prepareCall" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="createStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="JDBC" inheritance="inheritedMethods" capture="active" />
+          <method pattern="createStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="createStatement" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="JDBC" inheritance="inheritedMethods" capture="active">
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+          <method pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="&lt;api unknown&gt;" inheritance="inheritedMethods" capture="active" />
+        </class>
+        <class pattern=".pool.PoolUtils$CheckedKeyedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.PoolUtils$CheckedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.PoolUtils$ErodingKeyedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.PoolUtils$ErodingObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.impl.GenericKeyedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+          <method comment="used for resizing the connection pool" pattern="setMaxActive" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern=".pool.impl.GenericObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="addObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+          <method comment="used for resizing the connection pool" pattern="setMaxActive" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern=".pool.ObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.PoolUtils$ObjectPoolAdaptor" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.impl.SoftReferenceKeyedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.impl.SoftReferenceObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="addObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.impl.StackKeyedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.impl.StackObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="addObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.PoolUtils$SynchronizedKeyedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".pool.PoolUtils$SynchronizedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".dbcp.PoolableConnection" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="close" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".dbcp.AbandonedObjectPool" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="borrowObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".dbcp.PoolingDriver" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="registerPool" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="deletedArgument1" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="org.apache.commons.pool.ObjectPool" capture="false" match="equals" />
+            <argument pattern="deletedArgument2" />
+          </method>
+        </class>
+        <class pattern=".dbcp.PoolingDataSource" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="setPool" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+          <method pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern=".dbcp.PoolableConnectionFactory" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="initializeConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="protectedType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="java.sql.Connection" capture="false" match="equals" />
+          </method>
+          <method pattern="validateConnection" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+          <method pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+          <method pattern="makeObject" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern=".dbcp.datasources.PerUserPoolDataSource" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="getNumActive" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern=".datasources.SharedPoolDataSource" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="getNumActive" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+          <method pattern="registerPool" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern=".dbcp.datasources.InstanceKeyDataSource" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="setConnectionPoolDataSource" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="javax.sql.ConnectionPoolDataSource" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern=".dbcp.cpdsadapter.DriverAdapterCPDS" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="getPooledConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+          <method pattern="getPooledConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern=".dbcp.cpdsadapter.PooledConnectionImpl" placed="true" match="ends" delegationsuppression="false" techtype="java">
+          <method pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="weblogic.jdbc.wrapper.JTAConnection" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="is set public by the transformer; needed to get the DataSource out of a JTA Connection" pattern="getDataSource" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="defaultType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="weblogic.jdbc.jts.Driver" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="createLocalConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pool" inheritance="auto" capture="inactive">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+          <method pattern="copyLocalConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pool" inheritance="auto" capture="inactive">
+            <argument pattern="weblogic.jdbc.wrapper.JTSConnection" capture="false" match="equals" />
+            <argument pattern="weblogic.transaction.Transaction" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+          <method pattern="createRemoteConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pool" inheritance="auto" capture="inactive">
+            <argument pattern="weblogic.transaction.Transaction" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+          <method pattern="getExistingConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pool" inheritance="auto" capture="inactive">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="weblogic.transaction.Transaction" capture="false" match="equals" />
+          </method>
+          <method pattern="getLLRConnectionFromXACoordinator" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pool" inheritance="auto" capture="inactive">
+            <argument pattern="weblogic.transaction.Transaction" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+          </method>
+          <method pattern="createLocalConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="Connection Pooling" inheritance="auto" capture="active">
+            <argument pattern="weblogic.transaction.Transaction" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used to register the data source" pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="defaultType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+          <method comment="used to set the data on connection pool data and the current used count on the pooledConnection that is retrieved from the pool" pattern="checkoutPooledConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="com.mchange.v2.c3p0.impl.AbstractC3P0PooledConnection" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used to instrument the fields for the connection pool data and the connection used count into the Pooled Connection" pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="defaultType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="com.mchange.v2.c3p0.impl.C3P0PooledConnection$ProxyConnectionInvocationHandler" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used for the old reflective proxies to get information about connection pools" pattern="invoke" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="JDBC" inheritance="auto" capture="inactive">
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+            <argument pattern="java.lang.reflect.Method" capture="false" match="equals" />
+            <argument pattern="java.lang.Object[]" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="com.mchange.v2.c3p0.impl.C3P0PooledConnection" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used to instrument the fields for the connection pool data and the connection used count into the Pooled Connection (using the old, reflective proxies)" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="com.mchange.v2.c3p0.impl.NewPooledConnection" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="used to instrument the fields for the connection pool data and the connection used count into the Pooled Connection" pattern="getConnection" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive" />
+        </class>
+        <class pattern="org.apache.tomcat.jdbc.pool.PoolProperties" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method comment="allows to resize the Tomcat Connection Pool" pattern="setMaxActive" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="int" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="org.apache.tomcat.jdbc.pool.ConnectionPool" placed="true" match="equals" delegationsuppression="false" techtype="java" comment="used for recognition of creation of a Tomcat Connection Pool">
+          <method pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="org.apache.tomcat.jdbc.pool.PoolProperties" capture="false" match="equals" />
+          </method>
+          <method pattern="&lt;init&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="false" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="Connection Pooling" inheritance="auto" capture="inactive">
+            <argument pattern="org.apache.tomcat.jdbc.pool.PoolConfiguration" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="org.apache.tomcat.jdbc.pool.ProxyConnection" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="invoke" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="&lt;api unknown&gt;" inheritance="auto" capture="active">
+            <argument pattern="java.lang.Object" capture="false" match="equals" />
+            <argument pattern="java.lang.reflect.Method" capture="false" match="equals" />
+            <argument pattern="java.lang.Object[]" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="weblogic.jdbc.common.internal.RmiDataSource" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="getConnectionInternal" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="&lt;api unknown&gt;" inheritance="auto" capture="active">
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.lang.String" capture="false" match="equals" />
+            <argument pattern="java.util.Properties" capture="false" match="equals" />
+          </method>
+        </class>
+        <class pattern="oracle.jdbc.driver.OracleDriver" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="&lt;clinit&gt;" match="equals" placed="include" capturereturn="false" argsspecified="true" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="privateType" api="&lt;api unknown&gt;" inheritance="auto" capture="active" />
+        </class>
+        <class pattern="com.sun.enterprise.resource.pool.ConnectionPool" placed="true" match="equals" delegationsuppression="false" techtype="java">
+          <method pattern="getResource" match="equals" placed="include" capturereturn="false" argsspecified="false" overrideable="true" synctime="true" onlyinstrumentifsynchappens="false" visibility="publicType" api="JDBC" inheritance="auto" capture="active" />
+        </class>
+      </sensor>
+    </sensorpack>
+  </extension>
+</plugin>
+
